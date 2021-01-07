@@ -51,6 +51,12 @@ if(!require(lattice)) install.packages("lattice", repos = "http://cran.us.r-proj
 if(!require(latticeExtra)) install.packages("latticeExtra", repos = "http://cran.us.r-project.org")
 if(!require(funModeling)) install.packages("funModeling", repos = "http://cran.us.r-project.org")
 if(!require(DataExplorer)) install.packages("DataExplorer", repos = "http://cran.us.r-project.org")
+if(!require(e1071)) install.packages("e1071", dep = TRUE, type = "source")
+if(!require(tidyr)) install.packages("tidyr", repos = "http://cran.us.r-project.org")
+if(!require(fastAdaboost)) install.packages("fastAdaboost", repos = "http://cran.us.r-project.org")
+if(!require(ClustOfVar)) install.packages("ClustOfVar", repos = "http://cran.us.r-project.org")
+if(!require(gbm)) install.packages("gbm", repos = "http://cran.us.r-project.org")
+
 ```
 
 ``` {r libraries, include=FALSE}
@@ -82,6 +88,11 @@ library(grid)
 library(lattice)
 library(rpart.plot)
 library(DataExplorer)
+library(e1071)
+library(tidyr)
+library(fastAdaboost)
+library(ClustOfVar)
+library(gbm)
 ```
 
 *__HarvardX PH:125.9 - Capstone : Heart disease Analysis__*

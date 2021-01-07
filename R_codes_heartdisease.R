@@ -1,7 +1,6 @@
 #Harvard Capstone 2 - Heard disease prediction
 
 #check for necessary libraries
-
 if(!require(caret)) install.packages("caret", repos = "http://cran.us.r-project.org")
 if(!require(tidyverse)) install.packages("tidyverse", repos = "http://cran.us.r-project.org")
 if(!require(ggplot2)) install.packages("ggplot2", repos = "http://cran.us.r-project.org")
@@ -27,7 +26,11 @@ if(!require(lattice)) install.packages("lattice", repos = "http://cran.us.r-proj
 if(!require(latticeExtra)) install.packages("latticeExtra", repos = "http://cran.us.r-project.org")
 if(!require(funModeling)) install.packages("funModeling", repos = "http://cran.us.r-project.org")
 if(!require(DataExplorer)) install.packages("DataExplorer", repos = "http://cran.us.r-project.org")
-
+if(!require(e1071)) install.packages("e1071", dep = TRUE, type = "source")
+if(!require(tidyr)) install.packages("tidyr", repos = "http://cran.us.r-project.org")
+if(!require(fastAdaboost)) install.packages("fastAdaboost", repos = "http://cran.us.r-project.org")
+if(!require(ClustOfVar)) install.packages("ClustOfVar", repos = "http://cran.us.r-project.org")
+if(!require(gbm)) install.packages("gbm", repos = "http://cran.us.r-project.org")
 
 library(kableExtra)
 library(ggplot2)
@@ -54,6 +57,12 @@ library(grid)
 library(lattice)
 library(rpart.plot)
 library(DataExplorer)
+library(e1071)
+library(tidyr)
+library(fastAdaboost)
+library(ClustOfVar)
+library(gbm)
+
 ## Loading the data ##
 # alternate google drive path to data. Data is downloaded from kaggle and uploaded to
 # google drive and given public access
@@ -107,17 +116,6 @@ heart_data <- heart_data %>%
 
 glimpse(heart_data)
 
-class(heart_data$ca)
-heart_data$ca
-class(heart_data$ca)
-heart_data$chest_pain
-class(heart_data$oldpeak)
-heart_data$fast_blood_sugar
-heart_data$rest_ecg
-heart_data$exercise_angina
-heart_data$disease_indicator
-heart_data$slope
-heart_data$thal
 
 head(heart_data)%>%kable%>%kable_styling()
 #plot missing data
@@ -447,11 +445,11 @@ accuracy_results%>%kable%>%kable_styling(position="center")
 
 #table for results
 
-table1<- matrix(c(A,B,C,D),ncol = 2, byrow = TRUE)
-colnames(table1) <- c("Event","No Event")
-rownames(table1) <- c("Event","No Event")
-
-table1  
+# table1<- matrix(c(A,B,C,D),ncol = 2, byrow = TRUE)
+# colnames(table1) <- c("Event","No Event")
+# rownames(table1) <- c("Event","No Event")
+# 
+# table1  
 
 #list of confusion matrix
 cm_list <- list(
@@ -463,7 +461,7 @@ cm_list <- list(
   QDA = qda_c)
      
 cm_results <- sapply(cm_list, function(a) a$byClass)#representation with sapply
-cm_results %>% knitr::kable()
+cm_results
 ```
 
 
