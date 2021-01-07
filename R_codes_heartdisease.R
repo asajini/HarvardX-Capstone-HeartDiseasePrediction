@@ -28,6 +28,32 @@ if(!require(latticeExtra)) install.packages("latticeExtra", repos = "http://cran
 if(!require(funModeling)) install.packages("funModeling", repos = "http://cran.us.r-project.org")
 if(!require(DataExplorer)) install.packages("DataExplorer", repos = "http://cran.us.r-project.org")
 
+
+library(kableExtra)
+library(ggplot2)
+library(tidyverse)
+library(readr)
+library(caret)
+library(gbm)
+library(corrplot)
+library(ggcorrplot)
+library(MASS)
+library(rpart)
+library(caret)
+library(naivebayes)
+library(class)
+library(funModeling)
+library(randomForest)
+library(scales)
+library(cluster)
+library(plyr)
+library(ClustOfVar)
+library(dplyr)
+library(gridExtra)
+library(grid)
+library(lattice)
+library(rpart.plot)
+library(DataExplorer)
 ## Loading the data ##
 # alternate google drive path to data. Data is downloaded from kaggle and uploaded to
 # google drive and given public access
@@ -426,23 +452,6 @@ colnames(table1) <- c("Event","No Event")
 rownames(table1) <- c("Event","No Event")
 
 table1  
-
-#creating a table
-
-# library(tibble)
-# results_model <- tibble::tribble(
-#   ~Method, ~Accuracy, ~Sensitivity, ~Specificity, ~Pos, ~Neg,
-#   "Logistic Regression", accuracy_glm, sensitivity_glm,specificity_glm, 
-#   pos_pred_glm,neg_pred_glm),"KNN",accuracy_kn,sensitivity_kn, 
-#   specificity_kn,pos_pred_kn,neg_pred_kn, "Regression Trees", 
-#   accuracy_rpart, sensitivity_rpart,specificity_rpart,pos_pred_rpart,
-#   neg_pred_rpart,"Random Forest", accuracy_rf,sensitivity_rf,
-#   specificity_rf,pos_pred_rf,neg_pred_rf, "Ada Boost", accuracy_ada, 
-#   sensitivity_ada,specificity_ada, pos_pred_ada, neg_pred_ada, "QDA", 
-#   accuracy_qda,sensitivity_qda,specificity_qda, pos_pred_qda,neg_pred_qda) 
-# 
-# class(results_model)
-
 
 #list of confusion matrix
 cm_list <- list(
