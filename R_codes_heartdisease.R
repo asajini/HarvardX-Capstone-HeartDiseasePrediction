@@ -462,6 +462,6 @@ cm_list <- list(
      
 cm_results <- sapply(cm_list, function(a) a$byClass)#representation with sapply
 cm_results
-```
+
 
 
